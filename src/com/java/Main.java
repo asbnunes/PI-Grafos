@@ -1,30 +1,58 @@
 import api.*;
 import com.google.gson.Gson;
-import java.util.Arrays;
+import util.BuildGraph;
+
+import java.io.IOException;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         try {
-            ApiClient apiClient = new ApiClient("http://localhost:63291");
+            ApiClient apiClient = new ApiClient("https://gtm.delary.dev");
+            String userId = "usuario"; // Replace with actual user ID
 
-            // Fetch the list of mazes from the API
             String mazesJson = apiClient.getRequest("/labirintos");
-
-            // Assuming the API returns a JSON array of strings
             String[] mazes = new Gson().fromJson(mazesJson, String[].class);
 
-            // Print the list of mazes
             if (mazes != null) {
-                System.out.println("List of mazes:");
-                Arrays.stream(mazes).forEach(System.out::println);
+                System.out.println("Lista de labirintos:");
+                for (int i = 0; i < mazes.length; i++) {
+                    System.out.println((i + 1) + ". " + mazes[i]);
+                }
+                String selectedMaze = selectMaze(mazes);
+                BuildGraph buildGraph = new BuildGraph(apiClient, userId, selectedMaze);
+                Map<Integer, List<Integer>> adjacencyList = buildGraph.getAdjacencyList();
+                printAdjacencyList(adjacencyList);
             } else {
-                System.out.println("No mazes found or empty response.");
+                System.out.println("Nenhum labirinto encontrado.");
             }
-
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to retrieve the list of mazes: " + e.getMessage());
+            System.out.println("Erro: " + e.getMessage());
         }
+    }
+
+    private static void printAdjacencyList(Map<Integer, List<Integer>> adjacencyList) {
+        adjacencyList.forEach((node, edges) -> System.out.println("Node " + node + " -> " + edges));
+    }
+
+    private static String selectMaze(String[] mazes) {
+        Scanner scanner = new Scanner(System.in);
+        int selection = -1;
+        while (selection < 1 || selection > mazes.length) {
+            System.out.println("Select a maze number (1-" + mazes.length + "):");
+            if (scanner.hasNextInt()) {
+                selection = scanner.nextInt();
+                if (selection < 1 || selection > mazes.length) {
+                    System.out.println("Invalid selection. Please select a valid maze number.");
+                }
+            } else {
+                scanner.next(); // Consume the invalid input
+                System.out.println("Invalid input. Please enter a number.");
+            }
+        }
+        scanner.close(); // It's a good practice to close the scanner when it's no longer needed
+        return mazes[selection - 1]; // Array index starts at 0
     }
 }
