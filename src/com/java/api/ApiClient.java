@@ -5,12 +5,17 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.KeyManagementException;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -112,10 +117,30 @@ public class ApiClient {
         }
     }
 
-    public ValidatePathResponse validatePath(ValidatePathRequest request) throws IOException {
-        String jsonRequest = objectMapper.writeValueAsString(request);
-        HttpPost httpRequest = createRequest(baseUrl + "/valida_caminho", jsonRequest);
-        return objectMapper.readValue(sendRequest(httpRequest), ValidatePathResponse.class);
+    public ApiResponse validatePath(String user, String labyrinths, List<Integer> todosMovimentos) throws IOException {
+        String url = baseUrl+ "/validar_caminho";
+        HttpPost request = new HttpPost(url);
+        final List<NameValuePair> params = new ArrayList<>();
+        String json = "{\"id\":\"" + user + "\",\"labirinto\":\"" + labyrinths + "\",\"todos_movimentos\":" + todosMovimentos + "}";
+
+        final StringEntity myEntity = new StringEntity(json);
+
+        request.setEntity(myEntity);
+        request.setHeader("Content-type", "application/json");
+        request.setHeader("Accept", "application/json");
+        HttpResponse response = httpClient.execute(request);
+
+        int statusCode = response.getStatusLine().getStatusCode();
+
+        if (statusCode == 200) {
+            HttpEntity entity = response.getEntity();
+            String responseBody = EntityUtils.toString(entity);
+
+            return objectMapper.readValue(responseBody, ApiResponse.class);
+        } else {
+            throw new IOException("Erro na solicitação de movimento: Código de status " + statusCode);
+        }
+
     }
 
     private ApiResponse postRequest(String path, Object request) throws IOException {
@@ -144,8 +169,8 @@ public class ApiClient {
         }
     }
 
-    public String getRequest(String path) throws IOException {
-        HttpGet request = new HttpGet(baseUrl + path);
+    public List<String> getMazes() throws IOException {
+        HttpGet request = new HttpGet(baseUrl + "/labirintos");
         request.setHeader("Accept", "application/json");
 
         try (CloseableHttpResponse response = httpClient.execute(request)) {
@@ -154,9 +179,14 @@ public class ApiClient {
                 throw new IOException("GET request failed: Status code " + statusCode);
             }
             HttpEntity entity = response.getEntity();
-            return entity != null ? EntityUtils.toString(entity) : null;
+            if (entity != null) {
+                String jsonResponse = EntityUtils.toString(entity);
+                String[] mazes = objectMapper.readValue(jsonResponse, String[].class);
+                return Arrays.asList(mazes);
+            } else {
+                return Collections.emptyList();
+            }
         }
     }
 
-    // Any other methods from your original ApiClient can be modified similarly.
 }
