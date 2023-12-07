@@ -5,19 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bf76c59-4c6f-42f0-892e-1c874eb6fc72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/api/ApiClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/api/ApiResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/api/MoveRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/api/StartMazeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/api/ValidatePathRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/api/ValidatePathResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java/service/MazeResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/api/ApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/api/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/MoveRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/StartMazeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/ValidatePathRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/ValidatePathResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/BfsSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/service/Bfs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/LabyrinthGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/service/ToGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/LabyrinthResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/LabyrinthSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/service/MazeSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/VertexType.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,22 +44,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ToolWindowBuild.ShowToolbar": "false",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ToolWindowBuild.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="pi-grafos" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -80,5 +95,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.IOException" package="java.io" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
