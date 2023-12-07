@@ -96,24 +96,16 @@ public class ApiClient {
         request.setHeader("Content-type", "application/json");
         request.setHeader("Accept", "application/json");
 
-        // Log the request being sent
-        System.out.println("Request Body: " + json);
-
         HttpResponse response = httpClient.execute(request);
 
         int statusCode = response.getStatusLine().getStatusCode();
         HttpEntity entity = response.getEntity();
         String responseBody = EntityUtils.toString(entity);
 
-        // Log the response
-        System.out.println("Response Code: " + statusCode);
-        System.out.println("Response Body: " + responseBody);
-
         if (statusCode == 200) {
             return objectMapper.readValue(responseBody, ApiResponse.class);
         } else {
-            // Including the response body in the exception for better debugging
-            throw new IOException("Erro na solicitação de movimento: Código de status " + statusCode + " Response Body: " + responseBody);
+            throw new IOException("Erro na solicitação de movimento: " + statusCode + " Response Body: " + responseBody);
         }
     }
 
@@ -138,16 +130,8 @@ public class ApiClient {
 
             return objectMapper.readValue(responseBody, ApiResponse.class);
         } else {
-            throw new IOException("Erro na solicitação de movimento: Código de status " + statusCode);
+            throw new IOException("Erro na solicitação de movimento: " + statusCode);
         }
-
-    }
-
-    private ApiResponse postRequest(String path, Object request) throws IOException {
-        String jsonRequest = objectMapper.writeValueAsString(request);
-        HttpPost httpRequest = createRequest(baseUrl + path, jsonRequest);
-        String jsonResponse = sendRequest(httpRequest);
-        return objectMapper.readValue(jsonResponse, ApiResponse.class);
     }
 
     private HttpPost createRequest(String url, String jsonBody) {
@@ -162,7 +146,7 @@ public class ApiClient {
         try (CloseableHttpResponse response = httpClient.execute(request)) {
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode != 200) {
-                throw new IOException("Error in request: Status code " + statusCode);
+                throw new IOException("Erro: " + statusCode);
             }
             HttpEntity entity = response.getEntity();
             return entity != null ? EntityUtils.toString(entity) : null;

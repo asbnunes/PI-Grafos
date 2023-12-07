@@ -2,8 +2,8 @@ package service;
 
 import java.util.*;
 
-public class BfsSearch {
-    public List<Integer> bfs(LabyrinthGraph graph, int source, int destination) {
+public class Bfs {
+    public List<Integer> bfs(ToGraph graph, int source, int destination) {
         Map<Integer, Integer> distance = new HashMap<>();
         Map<Integer, Integer> parent = new HashMap<>();
         Queue<Integer> queue = new LinkedList<>();

@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bf76c59-4c6f-42f0-892e-1c874eb6fc72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/java/service/BfsSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/service/LabyrinthGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/service/LabyrinthResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/service/LabyrinthSolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/java/service/VertexType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java/service/MazeResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/java/api/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/api/ApiClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/java/util/BuildGraph.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/api/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/MoveRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/StartMazeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/ValidatePathRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/api/ValidatePathResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/BfsSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/service/Bfs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/LabyrinthGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/service/ToGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/LabyrinthResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/LabyrinthSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java/service/MazeSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java/service/VertexType.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

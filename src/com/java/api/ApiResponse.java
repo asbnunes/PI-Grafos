@@ -12,4 +12,6 @@ public class ApiResponse {
     @JsonProperty("final")
     private boolean fim;
     private int[] movimentos;
+    private boolean caminho_valido;
+    private int quantidade_movimentos;
 }
